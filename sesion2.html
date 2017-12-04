@@ -25,602 +25,85 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h3>TESTING EN .NET</h3>
-				</section>
-				<section>
-					<section id="SobreMi">
-						<h3>SOBRE MI</h3>
-						<ul>
-							<li>Full Stack Developer GeeksHubs Academy</li>
-							<li>Full Stack Developer GeeksHubs</li>
-							<li>Front End Developer TradeBox</li>
-							<li>Desarrollador Java Rumbo Sistemas</li>
-						</ul>
-						<img src="./img/xavi.jpg"/>
-					</section>
-					<section id="DondeLocalizarme">
-						<h3>DONDE PUEDES LOCALIZARME</h3>
-						<ul>
-							<li>Twitter <img src="\img\twitter.png" style="height:50px ; width: 80px ; margin-bottom:0px" /> <a href="=https://twitter.com/jaroso78_11">@jaroso78_11</a></li>
-							<li>Email <img src="\img\email.png"  style="height:50px ; width: 80px ; margin-bottom:0px"/> <a>email@javier-rodriguez.com</a></li>
-							<li>WWW <img src="\img\web.jpeg" style="height: 50px;  width:80px; margin-bottom: 0px"/> <a href="http://www.javier-rodriguez.com">www.javier-rodriguez.com</a></li>
-							<li>GitHub <img src ="\img\github.png" style="height: 50px;  width:80px; margin-bottom: 0px"> <a href="https://github.com/JavierRodriguez78">https://github.com/JavierRodriguez78</a></li>
-						</ul>
-					</section>
-				</section>
+					<h1>TDD</h1>
+                    <h2>Test Driven Development</h2>
+                </section>
                 <section>
                     <section>
-                        <h3>1. Qué es un test</h3>
-                        <p>Es código que prueba <b>automáticamente</b> el correcto funcionamiento de otro código</p>
-                    </section>
-                    <section>
-                        <h3>2. Testing</h3>
-                        <p>¿Por qué testear?</p>
-                        <ul>
-                            <li class="fragment">Crear software más robusto</li>
-                            <li class="fragment">Garantizar que las nuevas features no rompen las anteriores</li>
-                            <li class="fragment">Asegurarnos de que cumplimos con el DOD (definition of done)</li>
-                            <li class="fragment">Documentar nuestro código</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h3>Testing</h3>
-                        <img src="/img/dormirbien.jpg" />
-                    </section>
-                    <section>
-                        <h3>3. Tipos de Test</h3>
-                        <ul>
-                            <li>Por estrategia.</li>
+                        <h3>Test Driven Development</h3>
+                        <ul style="font-size: 35px!important;">
+                            <li>El TDD es una metodología recomendada para los procesos de desarrollo ágil</li>
+                            <li>Se usan test unitarios</li>
+                            <li>El ciclo de TDD consiste en:</li>
                             <ul>
-                                <li>Caja Blanca / Negra / Gris</li>
+                                <li>Traducimos los requisitos a pruebas (test)</li>
+                                <li>Escibimos los test antes que el código</li>
+                                <li>Resolvemos el test con el mínimo de código necesario</li>
+                                <ul>
+                                    <li>Recordemos el principio KISS (Keep It Simple, Stupid)</li>
+                                </ul>
+                                <li>
+                                    Refactorizamos después de cada iteraccion (si es necesario)
+                                </li>
                             </ul>
-                            <li>Por modo de ejecución.</li>
+                            <li>Se suele combinar con otras prácticas ágiles como el pair programming</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Ciclo del TDD</h3>
+                        <ul style="font-size: 30px!important">
+                            <li style="color:red;">RED</li>
                             <ul>
-                                <li>Manual, Exploratorio y Automatizado</li>
+                                <li>Escribimos un test y los dejamos en <a style="color:red;">rojo</a> esto significa que el test falle.</li>
+                                <ul>
+                                    <li>El test tine que FALLAR, no dar error.</li>
+                                </ul>
                             </ul>
-                            <li>Por ámbito / alcance</li>
+                            <li style="color:green;">GREEN</li>
                             <ul>
-                                <li>Unitario, de inegración, de Regresión de Aceptación</li>
-                                <li>Funcional, de carga, de Sistema</li>
+                                <li>Escribimos la mínima cantidad de código que resuelva el test</li>
+                                <ul>
+                                    <li>Se trata de solucionar SOLO ese test. Principio KISS.</li>
+                                    <li>No debemos adelantar acontecimientos o presuponer futuras necesidades</li>
+                                </ul>
+                            </ul>
+                            <li style="color:blue;">BLUE</li>
+                            <ul>
+                                <li>Analizamos nuestro código y buscamos posibles mejoras.</li>
+                                <ul>
+                                    <li>Renombrando variables/métodos</li>
+                                    <li>Eliminación de smells</li>
+                                    <li>Eliminación de duplicidades</li>
+                                </ul>
                             </ul>
                         </ul>
                     </section>
                     <section>
-                        <h3>Pirámide del Testing</h3>
-                        <img src="/img/piramidetest.png"/>
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h3>Test Unitarios</h3>
-                        <p>Son los test más importantes de la aplicación y comprueban funcionalidades básicas y elementales de la misma.</p>
-                        <p>Todo test unitario debe ser:</p>
-                        <ol style="font-size: 25px!important;">
-                            <li class="fragment">Atómico: que sólo comprueba una funcionalidad.</li>
-                            <li class="fragment">Independiente: que no dependa de otros.</li>
-                            <li class="fragment">Inocuo: que no altere el comportamiento de la aplicación después de su ejecución.</li>
-                            <li class="fragment">Rápido: como son muchos, se necesita que sean lo más rápido posible, ya que la idea es ejecutarlos varias veces.</li>
-                        </ol>
-                        <p>Esto coincide con el principio FIRST(Fast, Independent, Repeatable, Small y Transparent).</p>
-                    </section>
-                    <section>
-                        <h3>Ejemplo de test unitario</h3>
-                        <pre><code class="hljs" contenteditable>
-[TestClass]
-public class UnitTest{
-    [TestMethod]
-    public void StringExtensionIsBlueAPrimaryColorTest()
-    {
-        // Arrange
-        string color ="Blue";
-
-        // Act
-        bool actual = color.IsPrimaryColor();
-
-        // Assert
-        const bool expected = true;
-        Assert.AreEqual(expected, actual);
-    }
-}
-                    </code></pre>
-                    </section>
-                    <section>
-                        <h3>Los test unitarios suelen seguir el patrón AAA:</h3>
-                        <ul>
-                            <li>Arrange (Arranque)<pre><code>string color ="Blue";</code></pre></li>
-                           <li>Act (Acción) <pre><code>bool actual = color.IsPrimaryColor();</code></pre></li>
-                            <li>Assert (Aseveracion / Afirmación) <pre><code>Assert.AreEqual(expected, actual);</code></pre></li>
-                        </ul>
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h3>Test de Integración.</h3>
-                        <ul>
-                            <li class="fragment">Podemos verlo como una "versión extendida" del test unitario, ya que estos pueden romper las reglas (recordemo FIRST)</li>
-                            <li class="fragment">Usamos un FrameWork tipo NUNIT para escribir estos tests.</li>
-                            <li class="fragment">Como su nombre indica, "integra" distintas partes del sistema, pero siempre al mismo nivel( los test funcionales son los que se encargan de testear entre diferentes capas)</li>
-                            <li class="fragment">Hacen uso de "dobles" para simular las dependencias entre distintas partes.</li>
+                        <h3>Ventajas del TDD</h3>
+                        <ul style="font-size: 30px!important" >
+                            <li>La calidad del software aumenta.</li>
+                            <li>Conseguimos código altamente reutilizable.</li>
+                            <li>El trabajo en equipo se hace más fácil, une a las personas. Nos permite onfiar en nuestros compañeros aunque tenga menos experiencia.</li>
+                            <li>Multiplica la comunicación entre los miembros del equipo.</li>
+                            <li>Las personas encargadas de la garantía de calidad adquieren un rol más intelegente e interesante.</li>
+                            <li>Escribir el ejemplo(test) antes que el código nos obliga a escribir el mínimo de funcionalidad necesaria evitando sobrediseñar.</li>
+                            <li>Cuando revisamos un proyecto desarrollado mediante TDD, nos damos cuenta de que elos test son la mejor documentacion técnica que podemos consultar a la hora de enteder qué misión cumple cada pieza del puzzle.</li>
                         </ul>
                     </section>
                     <section>
-                        <h3>Test de Integración.</h3>
-                        <ul>
-                            <li class="fragment">El uso de "dobles" nos permite centrarnos en lo que estamos testeando.</li>
-                            <li class="fragment">También nos permite "espiar" el uso que hace el elemento testeado de las dependencias</li>
-                            <li class="fragment">Estos test suelen ser más frágiles que los unitarios, por l oque son menores en número.</li>
-                        </ul>
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h3>Tests Funcionales</h3>
-                        <p>Los test funcionales verifican la integración de diferentes capas de la aplicación</p>
-                        <p>por ejemplo: modelo, vista, controlador. No son muy diferenes de los tests unitarios, pero tienen un workflow diferentes.</p>
-                        <p>También se los conoce como "Test de sistema" o "End-to-End".</p>
-                    </section>
-                </section>
-                <section>
-                    <h3>Otros tipos de test</h3>
-                    <h4>Code Review</h4>
-                    <ul>
-                        <li>Este tipo de test implica a todo el equipo de desarrollo</li>
-                        <li>Usualmente busca confirmar que todo el mundo entiende el código que ha escrito uno de los miembros.</li>
-                        <li>Se evalúa sobre todo: </li>
-                        <ul style="font-size: 25px!important;">
-                            <li>Cumplimiento del Codign Style</li>
-                            <li>Nombres de variables y métodos compresinbles y correctos (sin faltas de ortografía)</li>
-                            <li>Claridad y compresión del código escrito.</li>
-                            <li>Detección de duplicidades(puede existir código que se pueda reutilizar)</li>
-                        </ul>
-                        <li>Se suele validar por al menos un developer.</li>
-                    </ul>
-                </section>
-                <section>
-                    <section>
-                        <h3>Entorno de trabajo</h3>
-                        <p>FrameWorks de Testing</p>
-                        <ul>
-                            <li>MsTest</li>
-                            <li>xUnit</li>
-                            <li>NUnit</li>
-                        </ul>
-                        <a href="https://github.com/JavierRodriguez78/PruebasEntornosTestUnitariosnet">https://github.com/JavierRodriguez78/PruebasEntornosTestUnitariosnet</a>
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h3>MSTest</h3>
-                        <img src="/img/mstestlogo.png"/>
-                        <br>
-                        <a href="https://docs.microsoft.com/es-es/visualstudio/test/improve-code-quality">https://docs.microsoft.com/es-es/visualstudio/test/improve-code-quality</a>
-                    </section>
-                    <section>
-                        <h3>Crear un proyecto de Test Unitario</h3>
-                        <img src="/img/MSSTEST.png" />
-
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h3>xUnit</h3>
-                        <img src="/img/xunit-dot-net-full-logo.png"/>
-                        <br>
-                        <a href="https://xunit.github.io/">https://xunit.github.io/</a>
-                    </section>
-                    <section>
-                        <h3>Creamos 1º Proyecto.</h3>
-                        <img src="/img/xUnit1.png" />
-                    </section>
-                    <section>
-                        <h3>Añadimos la referencia al proyecto mediante NuGet</h3>
-                        <img style="height:465px!important;" src="/img/xUnit2.png"/>
-                    </section>
-                    <section>
-                        <h3>Añadimos 1º las librerías de xunit</h3>
-                        <img src="/img/xUnit3.png"/>
-                    </section>
-                    <section>
-                        <h3>Añadimos las extensiones para Visual Studio</h3>
-                        <img src="/img/xUnit4.png" />
-                        <p>Para Visualizar este complemento</p>
-                        <p style="color:red;">Test > Windows > Test Explorer</p>
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h3>nUnit</h3>
-                        <img src="/img/nUnitlogo.png" />
-                        <br>
-                        <a href="http://nunit.org/">http://nunit.org/</a>
-                    </section>
-                    <section>
-                        <h3>1º Creamos una biblioteca de clases</h3>
-                        <img src="/img/1UNIT.png" />
-                    </section>
-                    <section>
-                        <h3>2º Añadimos las librerías de nUnit</h3>
-                        <img src="/img/2NUNIT.png"/>
-                    </section>
-                    <section>
-                        <h3>4º Instalamos nUnit</h3>
-                        <img src="/img/3NUNIT.png"/>
-                    </section>
-                    <section>
-                        <h3>5º Instalamos nGui </h3>
-                        <img src="/img/4NUNIT.png"/>
-                    </section>
-                    <section>
-                        <h3>6º Instalamos extensión Visual Studio</h3>
-                        <img src="/img/5NUNIT.png" />
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h3>Manos a la obra</h3>
-                        <img src="https://media.giphy.com/media/l4CCTAaQAnh7AzYBi/giphy.gif" />
-
-                    </section>
-                    <section>
-                        <h3>Nuestro Primer Test Unitario</h3>
-                        <p> Número Par.</p>
-                        <a href="https://github.com/JavierRodriguez78/PruebaUnitTesting">Definición ejercicio</a>
-                    </section>
-                    <section>
-                        <h3>Nuestro Segundo Test Unitario</h3>
-                        <p>Número Primo.</p>
-                        <a href="https://github.com/JavierRodriguez78/PruebaUnitTesting">Definición ejercicio</a>
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h3> Código Testeable</h3>
-                        <img src="https://media.giphy.com/media/6aAZ0LbOGaru/giphy.gif" />
-                    </section>
-                    <section>
-                        <h3>Coding Style</h3>
-                        <ul>
-                            <li>Cuando trabajamos en un equipo variado de gente, es muy importante seguir una serie de normas que aseguren la homogeneidad de nuestro código</li>
-                            <li>Esto suele simplificar la lectura del códgio, la búsqueda de determinados fragmentos de código.. etc</li>
-                            <li>Debemos de tomar una serie de decisiones como:</li>
-                            <ul style="font-size: 25px!important;">
-                                <li>Usamos camelcase o snakecase para el nombre de las variables.</li>
-                                <li>Nombre de variables y métodos en inglés o en español</li>
-                                <li>Espacios o tabulaciones?</li>
-                                <li>La llave inicial del cuerpo de un método... arriba o abjo?</li>
-                                <li>Número máximo de caracteres por línea</li>
+                        <h3>Limitaciones del TDD</h3>
+                        <ul style="font-size: 30px!important;">
+                            <li>Interfaces gráficas de usuario</li>
+                            <ul>
+                                <li>No existe manera fácil de testearlas.</li>
+                                <li>Hay otras metodologías quizá mejor orientadas a este tipo de testing,como el BDD</li>
+                            </ul>
+                            <li>Base de datos</li>
+                            <ul>
+                                <li>Es complicado de testear el código que accede a base de datos.</li>
+                                <li>Se neesita tener una base de datos conocida y rsetear su estado antes de cada test</li>
                             </ul>
                         </ul>
-                    </section>
-                    <section>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ussOk-ilK_8" frameborder="0" allowfullscreen></iframe>
-                    </section>
-                    <section>
-                        <h4>Cuantos de vosotros usáis snake-case?</h4>
-                        <pre><code class="hljs" contenteditable>
-CamelCase= EscriboConEstiloDeCamello
-                        </code></pre>
-                        <h4>Cuantos de vosotros usáis camel-case?</h4>
-                        <pre><code class="hljs" contenteditable>
-snake_case=escribo_con_un_estilo_de_serpiente
-                        </code></pre>
-                    </section>
-                    <section>
-                        <h4>Cuántos identáis con espacios?</h4>
-                        <br>
-                        <h4>Cuántos identáis con tabs?</h4>
-                    </section>
-                    <section>
-                        <h4>Cuántos de aquí usan nombres en español?</h4>
-                        <br>
-                        <h4>Cuántos de aquí usan nombres en inglés?</h4>
-                    </section>
-                    <section>
-                        <h4>Cuántos de aquí ponen la llave al principio?</h4>
-                        <br>
-                        <h4>Cuántos lo ponéis al final?</h4>
-                    </section>
-                    <section>
-                        <h4>Cuántos limitais el número de carácteres por clase?</h4>
-                    </section>
-                    <section>
-                        <h3>En definitiva</h3>
-                        <img src="https://media.giphy.com/media/5ntdy5Ban1dIY/giphy.gif"/>
-                    </section>
-                    <section>
-                        <h3>Coding Style</h3>
-                        <p>Establecer un estilo de codificar para todos.</p>
-                        <a href="https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/inside-a-program/coding-conventions">Convenciones Microsoft</a>
-                        <p>Por ejemplo en PHP</p>
-                        <a href="http://www.php-fig.org/">PHP-FIG</a>
-                    </section>
-                </section>
-                <section>
-                    <section>
-                        <h3>Principios SOLID</h3>
-                    </section>
-                    <section>
-                        <h4>Los Principios Solid</h4>
-                        <p>Los principios SOLID fuerno enunciados por Robert "Uncle Bob" Martin en su libro "Agile Software Development, Principles Patterns, and Practices"</p>
-                        <p>Conforman un acrónimo mnemónico para que sea más fácil recordarlo.</p>
-                        <p>En TDD, su uso es una norma no escrita.</p>
-                    </section>
-                    <section>
-                        <img src="/img/Robert_Cecil_Martin.png"/>
-                        <img src="/img/bookagile.jpg" />
-                    </section>
-                    <section>
-                        <h3>Single Responsability principe (SRP)</h3>
-                        <p><b>Principio de responsabilidad única</b></p>
-                        <p>Este, como su nombre lo indica, nos sugiere que todos los objetos en nuestro código debe tener una sola tarea o responsabilidad</p>
-                        <p><b>ERRORES TÍPICOS</b></p>
-                        <ul style="font-size: 25px!important;">
-                            <li>Exceso de métodos públicos.</li>
-                            <li>Excesivo número de imports.</li>
-                            <li>Cada nueva funcionalidad afecta a esta clase.</li>
-                            <li>Excesivo número de líneas</li>
-                            <li>En la misma clase están involucradas varias capas de arquitectura.</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h3>Ejemplo de aplicación SRP</h3>
-                        <pre><code class="hljs" contenteditable>
-public class Rectangle
-{
-    public double Sides { get; } =4;
-    public double Height { get; set; }
-
-    public static double SumAreas(IEnumerable[Rectangle] rectangles)
-    {
-            ///
-    }
-
-    public static double SumPerimeters(IEnumerable[Rectangle] rectangles)
-    {
-            ///
-    }
-}
-                        </code></pre>
-                    </section>
-                    <section>
-                        <p>Mientras que el programa principal se encarga de crear los rectángulos y llamar a los métodos respectivos para obtener la suma</p>
-                        <pre><code class="hljs" contenteditable>
-var rectangles = new[]
-{
-    new Rectangle {Width =10 , Height =5},
-    new Rectangle {Width =4 , Height =6},
-    new Rectangle {Width =5 , Height =1},
-    new Rectangle {Width =8 , Height =9}
-};
-var sumAreas = Rectangle.SumAreas(rectangles);
-var sumPerimeters = Rectangle.SumPerimeters(rectangles);
-
-                            </code></pre>
-                    </section>
-                    <section>
-                        <p>Cumpliento el SRP</p>
-                        <pre><code class="hljs" contenteditable>
-public class AreaOperations
-{
-    public static double Sum(IEnumerable[Rectangle] rectangles)
-    {
-        //
-
-
-public class PerimeterOperations
-{
-    public static double Sum(IEnumerable[Rectangle] rectangles)
-    {
-        //
-                        </code></pre>
-                    </section>
-                    <section>
-                        <h3>Open/Closed Principle (OCP)</h3>
-                        <p>Una entidad de software debería estar abierta a extensión pero cerrada a modificación.</p>
-                        <p>Tenemos que ser apaces de extender el comportamiento de nuestras clases sin necesidad de modificar su código</p>
-                        <p>El principio Open/Closed se suele resolver utilizando polimorfismo. En vez de obligar a la clase principal a saber cómo realizar una operación, delega esta a los objetos que utiliza, de tal forma que no necesita saber explícitamente cómo llevarla a cabo.</p>
-                    </section>
-                    <section>
-                        <p><b>Errores típicos</b></p>
-                        <p>Una de las formas más sencillas para detectarlo a darnos cuenta de qué clases modificamos más a menudo</p>
-                        <p>Si cada vez qeu hay un nuevo requisito o una modificación de los existentes, las mismas clases se ven afetadas, podemos empezar a enteder que estamos violando este principio.</p>
-                    </section>
-                    <section>
-                        <h3>Ejemplo de apliación OCP</h3>
-                        <p>De la clase anterior ahora es necesario tener en cuenta también triángulos equiláteros
-                        y que tu programa sumar las áreas de triángulos con rectángulos.</p>
-                        <p>Para ello creamos una nueva clase para representar los triángulos, y modificamos los métodos para sumar áreas
-                        para que estos acepten tanto retángulos como triángulos y dentro de ellos verificamos de qué tipo es cada objeto y realizamos el cálculo apropiado</p>
-                    </section>
-                    <section>
-                        <h3>Ejemplo de OCP</h3>
-                        <pre><code class="hljs" contenteditable>
-public class PerimeterOperations
-{
-    public double Sum(IEnumerable[object] shapes)
-    {
-        double perimeter = 0;
-        foreach (var shape in shapes)
-        {
-            if (shape is Rectangle)
-                perimeter += 2 * ((Rectangle)shape).Height + 2 * ((Rectangle)shape).Width;
-            else if (shape is EquilateralTriangle)
-                perimeter += ((EquilateralTriangle) shape).SideLength * 3;
-        }
-    return perimeter;
-    }
-}
-                        </code></pre>
-                    </section>
-                    <section>
-                        <pre><code class="hljs" contenteditable>
-public class AreaOperations
-{
-    public double Sum(IEnumerable[object] shapes)
-    {
-        double area = 0;
-        foreach (var shape in shapes)
-        {
-            if(shape is Rectangle)
-                area += ((Rectangle)shape).Height * ((Rectangle)shape).Width;
-            else if(shape is EquilateralTriangle)
-                area += Math.Sqrt(3) *  Math.Pow(((EquilateralTriangle)shape).SideLength,2) / 4;
-        }
-        return area;
-    }
-}
-                        </code></pre>
-                    </section>
-                    <section>
-                        <h3>Violación del OCP</h3>
-                        <p>Imaginamos que mañana tenemos que introducir una nueva figura.</p>
-                    </section>
-                    <section>
-                        <h3>Cumpliendo el principio OCP</h3>
-                        <p>La solución a esta violación se dará mediante el uso  de abstracciones(IGeometricShape</p>
-                        <p>En la cual indicaremos que nuestras figuras comparten propiedades y métodos (perímetro y área)</p>
-                        <pre><code class="hljs" contenteditable>
-public interface IGeometricShape
-{
-    double Area();
-    double Perimeter();
-}
-                        </code></pre>
-                    </section>
-                    <section>
-                    <p>También modificamos las clases de operaciones</p>
-                        <pre><code class="hljs" contenteditable>
-
-public double Sum(IEnumerable[IGeometricShape] shapes)
-{
-    double area = 0;
-    foreach (var shape in shapes)
-        area += shape.Area();
-    return area;
-}
-
-public double Sum(IEnumerable[IGeometricShape] shapes)
-{
-    double perimeter = 0;
-    foreach (var shape in shapes)
-        perimeter += shape.Perimeter();
-    return perimeter;
-}
-                        </code></pre>
-                    </section>
-                    <section>
-                        <p>De esta forma cuando en el futuro agreguémos nuevas figuras, únicamente tendremos que hacer es que implementen ese comportamiento común. Utilizando la herencia si necesidad de modificar el código existente</p>
-                    </section>
-                    <section>
-                        <h3>Liskov Substitution Principle (LSP)</h3>
-                        <p>Si en alguna parte de nuestro código estamos
-                            usando una clase, y esta clase es extendida,
-                            tenemos que poder utilizar cualquiera de las
-                            clases hijas y que el programa siga siendo
-                            válido</p>
-                        <p>
-                            Esto nos obliga a asegurarnos de que cuando
-                            extendemos una clase no estamos alterando
-                            el comportamiento de la madre.
-                        </p>
-                    </section>
-                    <section>
-                        <p><b>Errores típicos</b></p>
-                        <p>Si un método sobrescrito no hace nada o
-                            lanza una excepción, es muy probable que
-                            estés violando el principio de sustitución de
-                            Liskov.</p>
-                        <p>Si parece un pato, grazna como un pato, pero
-                            necesita pilas... probablemente no sea un
-                            pato.</p>
-                    </section>
-                    <section>
-                        <p>A partir de la implementación anterior nos piden ahora que calculemos la información de figuras cuadradas.</p>
-                        <p>Para ello creaos una clase llamada Square que hereda de la clase Rectangle, después de todo un cuadradono es más que un rectángulo con una pequeña restricción.</p>
-                        <p>Y para cumplir dicha restricción, cambiamos el comportaiento de sus propiedades Heigth y Width</p>
-                    </section>
-                    <section>
-                        <pre><code class="hljs" contenteditable>
-public class Square : Rectangle
-{
-    private double _height;
-    private double _width;
-
-    public override double Height
-    {
-        get { return _height; }
-        set
-        {
-            _height = value;
-            _width = value;
-        }
-    }
-
-    public override double Width
-    {
-        get { return _width; }
-        set
-        {
-            _width = value;
-            _height = value;
-        }
-    }
-}
-                        </code></pre>
-                    </section>
-                    <section>
-                        <h3>Inclumpliendo el principio LSP</h3>
-                        <p>Imaginamos que hacemos pruebas unitarias sobre la clase</p>
-                        <pre><code class="hljs" contenteditable>
-Rectangle rectangle = new Square();
-rectangle.Width = 3;
-rectangle.Height = 6;
-
-double expected = 18;
-double actual = rectangle.Area();
-
-Assert.AreEqual(expected, actual);
-
-                        </code></pre>
-                        <p> En el momento de ejecutar la prueba nos da un error aunque el código funciona</p>
-                    </section>
-                    <section>
-                        <h3>Cumpliendo el principio de LSP</h3>
-                        <p>El error se debe a que debemos derivar una clase sólo para añadir nuevas capacidades no para modificar las existentes</p>
-                        <p>Para solucionarlo sólo deberiamos indicarle que deribe de la interfaz IGeometrcSharpe</p>
-                        <pre><code class="hljs" contenteditable>public class Square : IGeometricShape</code></pre>
-                    </section>
-                    <section>
-                        <h3>Principio de Interface segreation principle (ISP)</h3>
-                        <p>El principio de segregación de interfaces
-                            viene a decir que ninguna clase debería
-                            depender de métodos que no usa.</p>
-                        <p>Por tanto, cuando creemos interfaces que
-                            definan comportamientos, es importante
-                            estar seguros de que todas las clases que
-                            implementen esas interfaces vayan a
-                            necesitar y ser capaces de agregar
-                            comportamientos a todos los métodos.</p>
-                        <p>Es mejor tener varias
-                            interfaces más pequeñas.</p>
-                    </section>
-                    <section>
-                        <p><b>Errores típicos de cumplimiento de ISP</b></p>
-                        <p>Al implementar una interfaz ves que uno o
-                        varios de los métodos no tienen sentido y te
-                        hace falta dejarlos vacíos o lanzar
-                        excepciones</p>
-                    </section>
-                    <section>
-                        <h3>Principio de Dependency inversion principle (DIP)</h3>
-                        <p>Este principio es una técnica básica, y será el que
-                            más presente tengas en tu día a día si quieres hacer
-                            que tu código sea testeable y mantenible.</p>
-                        <p>Cuando un módulo depende de otro módulo, se crea
-                            una nueva instancia y la utiliza sin más
-                            complicaciones. Esta forma de hacer las cosas, que a
-                            primera vista parece la más sencilla y natural, nos va
-                            a traer bastantes problemas posteriormente.</p>
                     </section>
                 </section>
 			</div>
